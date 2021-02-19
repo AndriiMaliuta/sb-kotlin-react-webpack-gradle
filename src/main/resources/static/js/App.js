@@ -1,8 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+// import Header from './components/Header'
+import { Button, Icon } from 'react-materialize';
 
 const App = () => {
-    return <div>Home React</div>
+
+    const [text, setText] = useState('');
+
+    const handleCLick = (event) => {
+        event.preventDefault();
+        setText('Clicked!')
+    }
+
+    return (
+        <div>
+            {/*<Header />*/}
+            <h2>React Home</h2>
+            <div>{text}</div>
+            <div>
+                <Button
+                    onClick={handleCLick}
+                    node="button"
+                    style={{
+                        marginRight: '5px'
+                    }}
+                    waves="light"
+                >
+                    button
+                    <Icon left>
+                        cloud
+                    </Icon>
+                </Button>
+            </div>
+        </div>
+    )
 }
 
 export default App

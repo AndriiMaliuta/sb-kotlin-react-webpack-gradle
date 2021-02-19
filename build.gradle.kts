@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "2.4.3"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("org.siouan.frontend-jdk11") version "5.0.0"
     kotlin("jvm") version "1.4.30"
     kotlin("plugin.spring") version "1.4.30"
     kotlin("plugin.jpa") version "1.4.30"
@@ -37,4 +38,12 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+frontend {
+    nodeDistributionProvided.set(true)
+    nodeVersion.set("14.15.1")
+    assembleScript.set("run build")
+//    cleanScript.set("run clean")
+//    checkScript.set("run check")
 }
